@@ -16,25 +16,17 @@ list_average = -1
 
 
 # First Loop Here:
+for num in list_one:
+    if num > 100:
+        list_max = num
+        print(list_max)
 
 
 # Second Loop Here:
+for num in list_one:
+    if num < 1:
+        list_min = num
 
 
 # Third Loop Here:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

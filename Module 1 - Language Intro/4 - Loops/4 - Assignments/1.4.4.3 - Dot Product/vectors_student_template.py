@@ -28,6 +28,11 @@ Step 2: Iterate through the vector(s) and calculate the dot product
 dot_product = 0
 
 ### Your code here
+# iterate through multiplying the two vectors and adding them to dot_product
+# by using the range of the length of the lists
+for number in range(len(vector_a)):
+    dot_product = dot_product + (vector_a[number] * vector_b[number])
+
 
 """
 Step 3: Calculate the error of your dot_product compared with numpy's solution

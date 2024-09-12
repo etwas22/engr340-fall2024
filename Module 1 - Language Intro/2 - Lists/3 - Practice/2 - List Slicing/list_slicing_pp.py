@@ -11,8 +11,8 @@ colors = example_list[:]
 print("Colors in example_list: " + str(colors))
 
 # now, you try: store all of "list" in the variable "numbers"
-numbers = None
-
+numbers = list[:]
+print("The list of numbers is", numbers)
 
 # next, you can select everything from a certain index onward to the
 # end of the list
@@ -20,8 +20,8 @@ favorites = example_list[3:]
 print("Favorite colors: " + str(favorites))
 
 # your turn: select the last 4 elements of list
-over_10 = None
-
+over_10 = list[2:]
+print(over_10)
 
 # by moving the integer to behind the colon, you can select everything up
 # to a certain index in the list
@@ -30,8 +30,8 @@ print("All primary colors: " + str(primary_colors))
 
 # store all the numbers less than 20 in "list" using this method and
 # store it in the variable below
-under_20 = None
-
+under_20 = list[:3]
+print(under_20)
 
 # you can also choose to select from one index up until another index
 # the -1 index means up until the last element
@@ -40,5 +40,5 @@ friends = names_list[2:-1]
 print("My friends: " + str(friends))
 
 # now, select the two numbers in the middle of "list"
-median = None
+median = list[2:4]
 print(median)

@@ -2,22 +2,22 @@
 # some conditional statements.
 
 # Here is the first variable we are going to use:
-age = 19
+age = 23
 
 # First, let's write a function that prints out if
 # a person's age is over 18. Also, have an else statement
 # if they are not over 18.
 
-if age:
-    print()
+if age < 18:
+    print("You're  a child")
 else:
-    print()
+    print("How's the joint pain?")
 
 # Next, choose a value to make the following statement print out
 # the 2nd elif statement! You can also mess around to see how other
 # values print different outcomes!
 
-temperature = -1
+temperature = 74
 
 if temperature <= 32:
     print("It's Below Freezing! Brrrrr")
@@ -32,13 +32,13 @@ else:
 # within an if statement!
 
 # Here is our variable to check
-weight = 170
+weight = 160
 
 # First, write an if statement to check if the weight is over 150:
-if weight:
+if weight >150:
     print("Weight is over 150!")
     # Now in here, write an if statement to check if it's below 180:
-    if weight:
+    if weight <180:
         print("Weight is also under 180!")
     else:
         print("Weight is also over 180!")

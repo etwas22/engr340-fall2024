@@ -9,7 +9,21 @@ Note: this problem does not require the "compounding interest" formula from the 
 """
 
 ### Your code here ###
+# For easy reference, in-state cost is $32,248 and out-of-state cost is $49,482
+rate = 5
+in_state = 30792
+out_of_state = 47882
+year = 1
 
-in_state_gift = 0
+# Finding donation amount of in-state
+in_donate = in_state / ((rate / 100) * year)
+print(in_donate)
 
-out_state_gift = 0
+# Finding donation amount of out-of-state
+out_donate = out_of_state / ((rate / 100) * year)
+print(out_donate)
+
+
+in_state_gift = 615840.00
+
+out_state_gift = 957640.00

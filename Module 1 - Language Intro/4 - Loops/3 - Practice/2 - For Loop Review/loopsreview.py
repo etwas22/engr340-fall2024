@@ -47,6 +47,9 @@ colors = ["blue", "green", "red", "hit", "orange"]
 violence = None
 for color in colors:
     print(color)
+    if color == "hit":
+        violence = True
+        break
 
 # to use continue, write a for loop that adds up only even numbers.
 # you can detect even numbers by detecting if x % 2 == 0,
@@ -75,6 +78,12 @@ stuff = ["red", 5, "blue", 7, 9, "orange", 30, 5, 5, 5]
 new_stuff = []
 for things in stuff:
     new_stuff.append(things)
+    if isinstance(things, str):
+        continue
+    elif things == 30:
+        break
+
+
 
 print(new_stuff)
 

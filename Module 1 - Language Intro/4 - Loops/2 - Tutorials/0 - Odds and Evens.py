@@ -16,7 +16,12 @@ one_odds = 0
 
 # Fill in this loop:
 for element in list_one:
-    dummy = None
+    dummy = element % 2
+    if dummy == 0:
+        one_evens = one_evens + 1
+    else:
+        one_odds = one_odds + 1
+
 
 # These statements can be used to check your work!
 print("The number of odds in list_one is: " + str(one_odds))
@@ -27,7 +32,17 @@ two_evens = 0
 two_odds = 0
 
 # Now you do the rest!
+for element in list_two:
+    twos = element % 2
+    print(twos)
+    if twos == 0:
+        two_evens = two_evens + 1
+    else:
+        two_odds = two_odds + 1
 
+# These statements can be used to check your work!
+print("The number of odds in list_two is: " + str(two_odds))
+print("The number of evens in list_two is: " + str(two_evens))
 
 
 

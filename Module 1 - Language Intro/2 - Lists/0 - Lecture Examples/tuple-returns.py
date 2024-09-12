@@ -41,4 +41,3 @@ array = np.random.rand(length, length)
 print("For array: ")
 print(array)
 print("Min value is", value, " located at ("+str(x)+","+str(y)+")")
-

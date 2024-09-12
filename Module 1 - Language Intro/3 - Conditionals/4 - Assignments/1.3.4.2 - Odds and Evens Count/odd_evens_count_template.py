@@ -29,3 +29,13 @@ num_evens = 0
 num_odds = 0
 
 ### YOUR CODE BEGINS HERE ###
+print(nums)
+
+for n in nums:
+    if n % 2 == 0:
+        num_evens = num_evens + 1
+    else:
+        num_odds = num_odds + 1
+
+print(num_evens)
+print(num_odds)

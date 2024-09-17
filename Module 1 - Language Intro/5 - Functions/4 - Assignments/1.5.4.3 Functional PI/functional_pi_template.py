@@ -10,9 +10,28 @@ def my_pi(target_error):
     """
 
     ### YOUR CODE HERE ###
+    iterations = 3 # change this number for however many iterations you want of the algorithm
+
+    a = 1
+    b = 1 / math.sqrt(2)
+    t = 1 / 4
+    p = 1
+
+    for i in range(iterations):
+        a_n = (a + b) / 2
+        b_n = math.sqrt(a * b)
+        p_n = 2 * p
+        t_n = t - p * math.pow(a_n - a, 2)
+
+        a = a_n
+        b = b_n
+        p = p_n
+        t = t_n
+
+    target_error = (math.pow(a_n + b_n, 2)) / (4*t_n)
 
     # change this so an actual value is returned
-    return 0
+    return target_error
 
 
 

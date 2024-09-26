@@ -61,8 +61,10 @@ def calculate_stress(force, sample_diameter):
     """
 
     ### YOUR SOLUTION FROM STEP 1 TEMPLATE HERE ###
+    area = sample_diameter ** 2
+    stress = (force / area) * 1000
 
-    return None
+    return stress
 
 
 def calculate_max_strength_strain(strain, stress):
@@ -76,10 +78,10 @@ def calculate_max_strength_strain(strain, stress):
     """
 
     # calculate the maximum stress experienced
-    ultimate_tensile_stress = -1
+    ultimate_tensile_stress = max(stress)
 
     # calculate the maximum strain experienced
-    fracture_strain = -1
+    fracture_strain = max(strain)
 
     return ultimate_tensile_stress, fracture_strain
 
@@ -133,6 +135,3 @@ if __name__ == "__main__":
 
     print("Ultimate Tensile Stress is ", ultimate_tensile_strength, "MPa")
     print("Fracture Strain is ", 100 * fracture_strain, " percent")
-
-
-

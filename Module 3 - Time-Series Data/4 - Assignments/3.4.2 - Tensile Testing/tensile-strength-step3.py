@@ -61,8 +61,10 @@ def calculate_stress(force, sample_diameter):
     """
 
     ### YOUR SOLUTION FROM STEP 1 TEMPLATE HERE ###
+    area = sample_diameter ** 2
+    stress = (force / area) * 1000
 
-    return None
+    return stress
 
 
 def calculate_max_strength_strain(strain, stress):
@@ -76,8 +78,10 @@ def calculate_max_strength_strain(strain, stress):
     """
 
     ### YOUR SOLUTION FROM STEP 2 TEMPLATE HERE ###
+    ultimate_tensile_stress = max(stress)
+    fracture_strain = max(strain)
 
-    return -1, -1
+    return ultimate_tensile_stress, fracture_strain
 
 def calculate_elastic_modulus(strain, stress):
     """

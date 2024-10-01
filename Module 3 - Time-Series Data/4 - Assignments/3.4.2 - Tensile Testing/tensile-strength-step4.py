@@ -61,8 +61,10 @@ def calculate_stress(force, sample_diameter):
     """
 
     ### YOUR SOLUTION FROM STEP 1 TEMPLATE HERE ###
+    area = sample_diameter ** 2
+    stress = (force / area) * 1000
 
-    return None
+    return stress
 
 
 def calculate_max_strength_strain(strain, stress):
@@ -76,8 +78,10 @@ def calculate_max_strength_strain(strain, stress):
     """
 
     ### YOUR SOLUTION FROM STEP 2 TEMPLATE HERE ###
+    ultimate_tensile_stress = max(stress)
+    fracture_strain = max(strain)
 
-    return -1, -1
+    return ultimate_tensile_stress, fracture_strain
 
 def calculate_elastic_modulus(strain, stress):
     """
@@ -97,6 +101,17 @@ def calculate_elastic_modulus(strain, stress):
     intercept = None
 
     ### YOUR SOLUTION FROM STEP 3 TEMPLATE HERE ###
+    ultimate_tensile_strength = max(stress)
+    secant_strain = ultimate_tensile_strength * 0.4
+
+    diffs = abs(stress - secant_strain)
+
+    linear_index = np.argmin(diffs)
+
+    linear_stress = stress[:linear_index]
+    linear_strain = strain[:linear_index]
+
+    slope, intercept = np.polyfit(linear_strain, linear_stress, 1)
 
     return linear_index, slope, intercept
 
@@ -115,14 +130,14 @@ def calculate_percent_offset(slope, strain, stress):
     offset = 0.002
 
     # calculate the offset line: y=m(x-0.002) + 0
-    offset_line = None
+    offset_line = slope * (strain - offset) + 0
 
     # measure distance from all points on graph to this line. Consider using the
     # abs() method to ensure values are positive
-    distance = None
+    distance = abs(offset_line - stress)
 
     # use argmin to find the index where the distance is minimal
-    intercept_index = -1
+    intercept_index = np.argmin(distance)
 
     return offset_line, intercept_index
 

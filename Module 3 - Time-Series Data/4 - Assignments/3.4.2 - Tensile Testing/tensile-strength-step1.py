@@ -3,6 +3,8 @@ import os
 import math
 import sys
 
+from numpy.ma.extras import average
+
 
 def parse_tensile_file(path_to_file):
     file = open(path_to_file)
@@ -66,8 +68,8 @@ def calculate_stress(force, sample_diameter):
 
     # calculate stress (MPa) from load (kN) and cross-sectional area
     ### your code here ###
-    stress = (force / area) * 1000
-
+    stress = force / area * 1000
+    print(average(stress))
 
     return stress
 

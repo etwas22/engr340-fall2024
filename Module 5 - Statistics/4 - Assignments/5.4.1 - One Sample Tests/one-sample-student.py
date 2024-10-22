@@ -36,7 +36,45 @@ def one_sample_tests(_files: list, _mean: float, _alpha: float, _less_than: bool
 
     # YOUR CODE HERE #
 
-    # return samples that were rejected
+    for n_txt in _files:
+        file_arr = np.loadtxt(n_txt)
+        _mean = np.mean(file_arr)
+        _alpha = 0.5
+        std_dev = np.std(file_arr)
+
+        for num in range(len(file_arr)):
+            if file_arr[num] > _mean:
+
+                #exp_mean = _mean + 1
+                _less_than = False
+                (stat, p_value) = ttest_1samp(float(file_arr[num]), popmean= float(_mean), alternative='greater')
+                if p_value < _alpha:
+                    reject_null_hypothesis.append(float(file_arr[num]))
+
+            elif file_arr[num] < _mean:
+
+                exp_mean = _mean - 1
+                _less_than = True
+                #(stat, p_value) = ttest_1samp(file_arr[num], popmean=exp_mean, alternative='less')
+
+        #for num in range(len(file_arr)):
+        #    if file_arr[num] > _mean:
+
+                #exp_mean = _mean + 1
+                #_less_than = False
+                #(stat, p_value) = ttest_1samp(file_arr[num], popmean=exp_mean, alternative='greater')
+                #if p_value < _alpha:
+                #    reject_null_hypothesis.append(file_arr[num])
+
+            #elif file_arr[num] < _mean:
+
+                #exp_mean = _mean - 1
+                #_less_than = True
+                # (stat, p_value) = ttest_1samp(file_arr[num], popmean=exp_mean, alternative='less')
+
+
+    #print(reject_null_hypothesis)
+
     return reject_null_hypothesis
 
 

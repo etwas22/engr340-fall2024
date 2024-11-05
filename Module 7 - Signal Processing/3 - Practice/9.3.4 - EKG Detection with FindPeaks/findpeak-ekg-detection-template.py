@@ -7,7 +7,7 @@ Step 1: Load pre-processed data that has already been filtered through the PT pr
 """
 #@TODO: fix import names
 # list of available pre-processed datasets in the data/ekg folder
-available_datasets = ["mitdb_201", "mitdb_213", "mitdb_219", "nstdb_118e00", "qtdb_118e06"]
+available_datasets = ["mitdb_201", "mitdb_213", "mitdb_219", "nstdb_118e00", "nstdb_118e06"]
 
 # select a data set from the enumerated list above
 dataset = available_datasets[0]
@@ -31,7 +31,7 @@ Step 3: Use Find Peaks
 """
 
 # you may want to explore various parameters for the function that will help you!
-peaks, _ = find_peaks(signal)
+peaks, _ = find_peaks(signal, height = 2, distance=50)
 print("Within the sample we found ", len(peaks), " heart beats with find_peaks!")
 
 """

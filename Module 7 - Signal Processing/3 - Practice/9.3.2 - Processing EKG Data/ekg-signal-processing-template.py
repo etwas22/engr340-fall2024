@@ -20,6 +20,11 @@ Step #1: load data in matrix from CSV file; skip first two rows. Call the data s
 
 signal = 0
 ## YOUR CODE HERE ##
+signal = np.loadtxt(signal_filepath, delimiter = ',', skiprows = 2)
+window_len = 12
+#time = signal[:,0]
+lead = signal[:,2]
+
 
 """
 Step 2: (OPTIONAL) pass data through LOW PASS FILTER (fs=250Hz, fc=15, N=6). These may not be correctly in radians
@@ -32,19 +37,26 @@ Step 3: Pass data through weighted differentiator
 """
 
 ## YOUR CODE HERE ##
-
+diff = np.diff(lead)
 
 """
 Step 4: Square the results of the previous step
 """
  ## YOUR CODE HERE ##
+square = np.square(diff)
 
 """
 Step 5: Pass a moving filter over your data
 """
 
 ## YOUR CODE HERE
+ave = np.convolve(square, np.ones(window_len), mode = 'same')
+
 # make a plot of the results. Can change the plot() parameter below to show different intermediate signals
-plt.title('Process Signal for ' + database_name)
-plt.plot(signal)
+plt.title('Moving Signal for ' + database_name)
+plt.plot(ave)
+plt.xlim(0, 5000)
+plt.ylim(0, 0.2)
+plt.ylabel("Lead (mV)")
+plt.xlabel("Index")
 plt.show()

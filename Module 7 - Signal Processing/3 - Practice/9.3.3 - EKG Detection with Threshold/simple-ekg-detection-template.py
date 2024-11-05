@@ -7,7 +7,7 @@ Step 1: Load pre-processed data that has already been filtered through the Pan T
 """
 #@TODO: fix import names
 # list of available pre-processed datasets in the data/ekg folder
-available_datasets = ["mitdb_201", "mitdb213", "mitdb219", "nstdb_118e00", "qtdb_118e06"]
+available_datasets = ["mitdb_201", "mitdb_213", "mitdb_219", "nstdb_118e00", "qtdb_118e06"]
 
 # select a data set from the enumerated list above
 dataset = available_datasets[0]
@@ -32,10 +32,10 @@ Adjust the values for threshold and timeout to change the detection method/appro
 """
 
 # set a detection threshold (YOUR VALUE BELOW)
-detection_threshold = -1
+detection_threshold = 2
 
 # set a heart beat time out (YOUR VALUE BELOW)
-detection_time_out = -1
+detection_time_out = 50
 
 # track the last time we found a beat
 last_detected_index = -1
@@ -53,6 +53,8 @@ Step 4: Manually iterate through the signal and apply the threshold with timeout
 # loop through signal finding beats
 for value in signal:
     ## Use a conditional statement to see if the signal is above a threshold...
+    if value > detection_threshold:
+        beats_detected.append(current_index)
 
     ## Once an index is found, place the index in the beats_detected list
     current_index += 1
